@@ -1,5 +1,8 @@
 const express = require('express');
-const path = require('path');
+//Add paths for api & html routes
+// const path = require('path');
+const htmlRoutes = require("./routes/htmlRoutes.js");
+const apiRoutes = require("./routes/apiRoutes.js");
 
 const app = express();
 
