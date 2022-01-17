@@ -16,19 +16,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : true}));
 
 //Add folder for routes to seperate concerns
+app.use("/", htmlRoutes);
+app.use("api/", apiRoutes);
 
 //add uuid helper
+app.use("./helpers/uuid.js");
 
-app.get('/', (req, res) => res.send('Navigate to /send or /routes'));
-
-app.get('/send', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/send.html'))
-);
-
-app.get('/paths', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/paths.html'))
-);
-
+//Listener
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
 );
