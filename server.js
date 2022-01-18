@@ -3,6 +3,7 @@ const express = require('express');
 // const path = require('path');
 const htmlRoutes = require("./routes/htmlRoutes.js");
 const apiRoutes = require("./routes/apiRoutes.js");
+const api = require("./routes/index");
 
 const app = express();
 
