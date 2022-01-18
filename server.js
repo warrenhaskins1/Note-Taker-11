@@ -13,16 +13,15 @@ app.use(express.static('public'));
 
 //Add our middleware for json and urlencoded
 app.use(express.json());
-app.use(express.urlencoded({ extended : true}));
+app.use(express.urlencoded({ extended : true }));
 
 //Add folder for routes to seperate concerns
 app.use("/", htmlRoutes);
 app.use("api/", apiRoutes);
 
-//add uuid helper
-app.use("./helpers/uuid.js");
 
-//Listener
+
+//Port listener
 app.listen(PORT, () =>
-  console.log(`Example app listening at http://localhost:${PORT}`)
+  console.log(`Note Taker app listening at http://localhost:${PORT}`)
 );
