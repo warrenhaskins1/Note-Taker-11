@@ -60,9 +60,9 @@ router.post('/notes', (req, res) => {
 
 // delete note function route
 
-router.delete('/notes/', (req, res) => {
+router.delete('/notes/:id', (req, res) => {
     store
-        .removeNote(req.params)
+        .removeNote(req.params.id)
         .then(() => res.json({ ok: true }))
         .catch(err => res.status(500).json(err))
 })
