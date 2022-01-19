@@ -28,6 +28,7 @@ Click the provided Heroku link and click "Get Started"!
 - BCS Repos
 - StackoverFlow
 - https://devcenter.heroku.com/articles/git
+- https://www.freecodecamp.org/news/how-to-deploy-a-nodejs-app-to-heroku-from-github-without-installing-heroku-on-your-machine-433bec770efe/
 
 ## License
 
