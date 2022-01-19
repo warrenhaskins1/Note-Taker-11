@@ -1,28 +1,24 @@
-const express = require('express');
-//Add paths for api & html routes
-// const path = require('path');
-const htmlRoutes = require("./routes/htmlRoutes.js");
-const apiRoutes = require("./routes/apiRoutes.js");
-const api = require("./routes/index");
+const express = require("express");
+
+//Add dependency for api & html routes
+const htmlRoutes = require("./routes/htmlRoutes");
+const apiRoutes = require("./routes/apiRoutes");
 
 const app = express();
 
-//Set the PORT so that it doesnt auto default to 3001 or you may get errors
-const PORT = process.env.Port || 3001;
-
-app.use(express.static('public'));
+//Set the PORT so that it doesnt auto default to 3001 or you may get errors with Heroku
+const PORT = process.env.PORT || 3001;
 
 //Add our middleware for json and urlencoded
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.urlencoded({ extended : true }));
 
-//Add folder for routes to seperate concerns
+app.use(express.static("public"));
+
+app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
-app.use("api/", apiRoutes);
-
-
 
 //Port listener
-app.listen(PORT, () =>
-  console.log(`Note Taker app listening at http://localhost:${PORT}`)
-);
+app.listen(PORT, () => {
+  console.log(`Note Taker app listening on PORT: ${PORT}`);
+});

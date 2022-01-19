@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Warren Haskins",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "bootstrap": "^5.1.3",
+    "express": "^4.16.4",
+    "nodemon": "^2.0.15"
   }
 }
