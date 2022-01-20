@@ -1,11 +1,10 @@
 const util = require("util");
 const fs = require("fs");
-const { v4: uuidv4 } = require('uuid');
 
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
-class Store {
+class saveNotes {
     read() {
         return readFileAsync("db/db.json", "utf8")
     }
@@ -17,10 +16,10 @@ class Store {
         const { title, text } = note
 
         if (!title || !text) {
-            throw new Error("title and text cannot be blank")
+            throw new Error("You must have a Title & Text!")
         }
 
-        const newNote = { title, text, id: uuidv4() }
+        const newNote = { title, text }
 
         return this.getNotes()
             .then(notes => [...notes, newNote])
@@ -34,11 +33,7 @@ class Store {
                 return JSON.parse(notes) || [];
             })
     }
-    removeNote(id) {
-        return this.getNotes()
-            .then(notes => notes.filter(note => note.id !== id))
-            .then(keptNotes => this.write(keptNotes))
-    }
+   
 }
 
-module.exports = new Store();
+module.exports = new saveNotes();

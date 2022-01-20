@@ -20,5 +20,5 @@ app.use("/", htmlRoutes);
 
 //Port listener
 app.listen(PORT, () => {
-  console.log(`Note Taker app listening on PORT: ${PORT}`);
+  console.log(`Note Taker app is listening on PORT: ${PORT}`);
 });
